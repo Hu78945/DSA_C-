@@ -1,0 +1,7 @@
+arrays are similar data item   .
+int A[5];
+Main memory have three sections:
+Heap
+Stack
+Main
+Array will be created in the Stack

@@ -1,0 +1,169 @@
+Recursion:
+=========
+A function calling intselve is called recursive function.
+For Example
+    int fun(){
+        if(<base_condition>){
+            func()
+        }else{
+            return 0;
+        }
+    }
+There must be some base_condition that will terminte the function otherwise the function will run infinte time.
+
+There are two phases of recursive function which are follwoing:
+1.  Ascending Calling
+2.  Descending Calling
+
+Ascending Calling:
+=================
+It is called at calling time for Example:
+    void func(int n){
+        if(n > 0){
+            1.Calling
+            2.func(n-1)*2
+            3.Returing
+        }
+    }
+and vice versa for Descending.
+
+The main difference between loop and Recursion is that a loop have only Ascending case but recursive function have Ascending as well as Descending phase.
+
+How Recursion Uses Stack:
+========================
+When a recursive function is called it keeps on making stack frame or activation record until the exit condition is matched after that it start poping out of the stack by the stratgy which is LAST IN FIRST OUT. and keep on going depends upon how many calls wer made and finally returns back to the mai function.
+For n number of calls there will be n+1 call last being the call where the exit condition is matched.
+Its time complexity is O(n). recursive function are memory consuming functions.
+
+
+Time Complexity Of Recursive Function:
+======================================
+Thers is technique called recurence relation which we can use to find the time complexity of the recursive function.
+
+Types Of Recursion:
+==================
+>   Tail Recursion
+>   Head Recursion
+>   Tree Recursion
+>   Indirect Recursion
+>   Nested Recursion
+
+Tail Recursion:
+==============
+If the function is calling itselve and its the last statemt in the function then it is a tail Recursion For Example:
+
+    void fun(int x)
+    {
+        if (x > 0)
+        {
+            printf("%d ", x);
+            fun(x - 1);
+        }
+    }
+function will not be perfoming any operation at the returning time. It is perfomed at calling time only.
+The Example below is not a tail recursion because the x will be added at the returning time.
+    void fun(int x)
+        {
+            if (x > 0)
+            {
+                printf("%d ", x);
+                fun(x - 1) + x;
+            }
+        }
+
+Every loop can be written as a recursive function and vice versa. Instead of using tail recursion we should use loop asit consume less memory.
+    void fun(int x)
+        {
+            while (x > 0)
+            {
+                printf("%d ", x);
+                x--;
+            }
+        }
+
+Head Recursion:
+==============
+
+If the first statement inside a function is function calling itselve then its a head recursion:
+For Example:
+===========
+    void fun2(int x)
+    {
+        if (x > 0)
+        {
+            fun(x - 1);
+            printf("%d ", x);
+        }
+    }
+We can not eaisly convert a tail recursion into loop but if we do some modification we can do so.
+    void fun2(int x)
+    {
+        int i = 1;
+        while (i <= x)
+        {
+            printf("%d ", x);
+            i++;
+        }
+    }
+
+Tree Recursion:
+==============
+if a recursion function in code is calling itselve only one time then it is linear recursion.
+    void fun(int x)
+        {
+            if (x > 0)
+            {
+                ----------------
+                ----------------
+                fun(x - 1);
+                ----------------
+                ----------------
+            }
+        }
+If a recursive function is calling itselve more than one time then its a tree recursion.
+    void fun(int x)
+        {
+            if (x > 0)
+            {
+                ----------------
+                ----------------
+                fun(x - 1);
+                ----------------
+                ----------------
+                fun(x - 1);
+                ----------------
+                ----------------
+            }
+        }
+
+Indirect Recursion:
+==================
+In Indirect Recursion one and other function is calling itselve in a cirular manner.
+Example:
+    void A(int n) {
+        if(<---->){
+            -----
+            -----
+            B(n-1);
+        }
+    }
+
+    void B(int n){
+        if(<----->){
+            -----
+            -----
+            A(n-3);
+        }
+    }
+
+Netsed Recursion:
+================
+in nested recursion parmenter will be passed as a recursive call:
+    void fun(int n){
+        if(<--->){
+            ----------
+            ----------
+            fun(fun(n-1));
+        }
+    }
+
