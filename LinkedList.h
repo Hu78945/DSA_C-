@@ -44,4 +44,6 @@ public:
     void RemovePrepend();
     void pop();
     void DeleteAtIndex(int index);
+    // Remove Duplicate
+    void RemoveDuplicate();
 };

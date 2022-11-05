@@ -197,3 +197,24 @@ void LinkedList::DeleteAtIndex(int index)
         }
     }
 }
+
+// The List should be sorted in order to remove duplicate
+void LinkedList::RemoveDuplicate()
+{
+    Node *p = head;
+    Node *q = p->getNext();
+    while (q != NULL)
+    {
+        if (p->getData() != q->getData())
+        {
+            p = q;
+            q = q->getNext();
+        }
+        else
+        {
+            p->setNext(q->getNext());
+            delete q;
+            q = p->getNext();
+        }
+    }
+}
