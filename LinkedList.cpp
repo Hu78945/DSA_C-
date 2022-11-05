@@ -36,6 +36,11 @@ int Node::getData()
     return data;
 }
 
+void Node::setData(int data)
+{
+    this->data = data;
+}
+
 // Linked List Constructor
 LinkedList::LinkedList()
 {
@@ -216,5 +221,55 @@ void LinkedList::RemoveDuplicate()
             delete q;
             q = p->getNext();
         }
+    }
+}
+
+void LinkedList::ReverseMeyhode1()
+{
+    int Arr[length];
+    Node *p = head;
+    int i = 0;
+    while (p != NULL)
+    {
+        Arr[i] = p->getData();
+        i++;
+        p = p->getNext();
+    }
+    p = head;
+    i--;
+    while (p != NULL)
+    {
+        p->setData(Arr[i]);
+        i--;
+        p = p->getNext();
+    }
+}
+
+void LinkedList::ReverseMethoed2()
+{
+    Node *p = head;
+    Node *q = NULL;
+    Node *r = NULL;
+    while (p != NULL)
+    {
+        r = q;
+        q = p;
+        p = p->getNext();
+        q->setNext(r);
+    }
+    tail = head;
+    head = q;
+}
+
+void LinkedList::ReverseR(Node *q, Node *p)
+{
+    if (p != NULL)
+    {
+        ReverseR(p, p->getNext());
+        p->setNext(q);
+    }
+    else
+    {
+        head = q;
     }
 }

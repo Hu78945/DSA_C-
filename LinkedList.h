@@ -13,6 +13,7 @@ public:
     Node *getNext();
     void setNext(Node *next);
     int getData();
+    void setData(int data);
 };
 
 class LinkedList
@@ -46,4 +47,12 @@ public:
     void DeleteAtIndex(int index);
     // Remove Duplicate
     void RemoveDuplicate();
+    // Reverse the linked list by reversing the elements
+    void ReverseMeyhode1();
+    // Reverse the linked list by reversing the links
+    // Note: it will break the tail
+    void ReverseMethoed2();
+
+    // Reverse a linked list recursively
+    void ReverseR(Node *q, Node *p);
 };
