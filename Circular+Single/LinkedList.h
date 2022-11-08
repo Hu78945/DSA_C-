@@ -55,4 +55,24 @@ public:
 
     // Reverse a linked list recursively
     void ReverseR(Node *q, Node *p);
+
+    // Concat a linked list
+    void Concat(LinkedList l1);
+
+    // Merge two linked list
+    static void Merge(LinkedList first, LinkedList second);
+};
+
+class CircularLinkedList
+{
+public:
+    Node *Head;
+    int length;
+    CircularLinkedList();
+    CircularLinkedList(Node *item);
+    void Display();
+    void insert(int index, int item);
+    void add(int item);
+    void DeleteHead();
+    void DeleteAtIndex(int index);
 };

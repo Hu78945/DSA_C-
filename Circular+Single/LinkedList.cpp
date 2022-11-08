@@ -273,3 +273,164 @@ void LinkedList::ReverseR(Node *q, Node *p)
         head = q;
     }
 }
+
+void LinkedList::Concat(LinkedList l1)
+{
+    tail->setNext(l1.head);
+    l1.head = NULL;
+    tail = l1.tail;
+    l1.tail = NULL;
+}
+
+void LinkedList::Merge(LinkedList first, LinkedList second)
+{
+    Node *first1 = first.head;
+    Node *second1 = second.head;
+    Node *last = NULL;
+    Node *third = NULL;
+    if (first1->getData() < second1->getData())
+    {
+        third = last = first1;
+        first1->setNext(first1->getNext());
+        third->setNext(NULL);
+    }
+    else
+    {
+        third = last = second1;
+        second1->setNext(second1->getNext());
+        third->setNext(NULL);
+    }
+    while (first1 != NULL && second1 != NULL)
+    {
+        if (first1->getData() < second1->getData())
+        {
+            last->setNext(first1);
+            last = first1;
+            first1->setNext(first1->getNext());
+            last->setNext(NULL);
+        }
+        else
+        {
+            last->setNext(second1);
+            last = second1;
+            second1->setNext(second1->getNext());
+            last->setNext(NULL);
+        }
+    }
+    if (first1 != NULL)
+    {
+        last->setNext(first1);
+    }
+    else
+    {
+        last->setNext(second1);
+    }
+
+    Node *p = third;
+    while (p != NULL)
+    {
+        cout << p->getData() << " ";
+    }
+}
+
+CircularLinkedList::CircularLinkedList()
+{
+    Head = NULL;
+}
+
+CircularLinkedList::CircularLinkedList(Node *item)
+{
+    Head = item;
+    length = 1;
+}
+void CircularLinkedList::Display()
+{
+    Node *p = Head;
+    do
+    {
+        cout << p->getData() << " ";
+        p = p->getNext();
+    } while (p != Head);
+    cout << endl;
+}
+
+void CircularLinkedList::insert(int index, int item)
+{
+    if (index > 0)
+    {
+        Node *newNode = new Node(item);
+
+        Node *p = Head;
+        int counter = 0;
+        while (counter != index - 1)
+        {
+            counter++;
+            p = p->getNext();
+        }
+        Node *tempNext = p->getNext();
+        newNode->setNext(tempNext);
+        p->setNext(newNode);
+    }
+}
+
+void CircularLinkedList::add(int item)
+{
+    Node *p = Head;
+    Node *t = new Node(item);
+    t->setNext(Head);
+    if (Head == NULL)
+    {
+        Head = t;
+        Head->setNext(t);
+    }
+    else
+    {
+
+        while (p->getNext() != Head)
+        {
+            p = p->getNext();
+        }
+        p->setNext(t);
+        Head = t;
+    }
+}
+
+void CircularLinkedList::DeleteHead()
+{
+    Node *temp = Head->getNext();
+    Node *head = Head;
+    Node *p = Head;
+    while (p->getNext() != Head)
+    {
+        p = p->getNext();
+    }
+    p->setNext(temp);
+    Head = temp;
+    delete head;
+}
+
+void CircularLinkedList::DeleteAtIndex(int index)
+{
+    if (index > 0)
+    {
+        Node *p = Head;
+        int counter = 0;
+        while (counter != index - 1)
+        {
+            counter++;
+            p = p->getNext();
+        }
+        Node *temp = p->getNext()->getNext();
+        Node *dNode = p->getNext();
+        p->setNext(temp);
+        delete dNode;
+    }
+    else if (index == 0)
+    {
+        DeleteHead();
+    }
+    else
+    {
+        cout << "Please enter a valid index" << endl;
+    }
+}
