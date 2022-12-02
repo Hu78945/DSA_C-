@@ -4,10 +4,10 @@ using namespace std;
 class Node
 {
 public:
-    int data;
+    char data;
     Node *next;
     Node();
-    Node(int x);
+    Node(char x);
 };
 
 class Stack
@@ -17,8 +17,9 @@ private:
 
 public:
     Stack();
-    void push(int x);
-    void pop();
+    void push(char x);
+    char stackTop();
+    char pop();
     int IsEmpty();
     int IsFull();
     void Display();

@@ -8,7 +8,7 @@ Node::Node()
     next = NULL;
 }
 
-Node::Node(int x)
+Node::Node(char x)
 {
     data = x;
     next = NULL;
@@ -19,7 +19,7 @@ Stack::Stack(/* args */)
     top = NULL;
 }
 
-void Stack::push(int x)
+void Stack::push(char x)
 {
     if (top == NULL)
     {
@@ -41,11 +41,11 @@ void Stack::push(int x)
     }
 }
 
-void Stack::pop()
+char Stack::pop()
 {
     Node *temp = top;
     top = top->next;
-    delete temp;
+    return temp->data;
 }
 
 int Stack::IsEmpty()
@@ -81,6 +81,11 @@ void Stack::Display()
         cout << p->data << "\n";
         p = p->next;
     }
+}
+
+char Stack::stackTop()
+{
+    return top->data;
 }
 
 Stack::~Stack()
