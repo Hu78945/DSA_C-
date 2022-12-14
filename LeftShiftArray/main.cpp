@@ -23,6 +23,13 @@ void shiftLeftByN(int *arr, int n, int k)
 int main()
 {
     int A[5] = {1, 2, 3, 4, 5};
+    for (int i = 0; i < 5; i++)
+    {
+        cout << A[i] << " ";
+    }
+    cout << endl;
+
+    cout << "----------------------------------------------------" << endl;
     shiftLeftByN(A, 5, 2);
     for (int i = 0; i < 5; i++)
     {
