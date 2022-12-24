@@ -1,0 +1,173 @@
+Terminology of trees:
+=====================
+
+Tree is a collection of nodes or vertices and adjacent nodes or vertices.
+    8
+  /   \
+ 1     2
+
+ If there ar n nodes then there will be n-1 vertices.
+ Tree is collection of nodes and among those nodes one node is taken as root node rest of the nodes are divided into disjoint subsets and each subset is a tree or sub tree again.
+Root:
+====
+The very first node on the top is root.
+parent:
+======
+A node is a parent to its very next decendent.
+Sibling:
+=======
+Sibling are childern of same parent.
+decendent:
+==========
+decendent are all those set of nodes which can be reached from a particular node or under that node.
+Degree of a node:
+=================
+Degree of a node is number of childern it is having direct childern.
+For Example:
+                     A
+                 /   |   \
+                B    C    D
+Degree of A node is 3.
+From the tree we can not tell its Degree.
+Internal / External Nodes:
+==========================
+Internal / External nodes are also know as no-leave and leave nodes or terminal node or non-terminal nodes.
+Nodes with degree zero are called leave nodes. / External nodes / terminal Nodes.
+Those nodes whoes degree is greater than zero is called non-leave nodes / internal nodes / non-terminal Nodes.
+
+Levels:
+======
+Levels of the tree starts from root and root level is one and its childern have 2 level.
+                    A             Level 1 
+                  /   \           
+                 C     B          Level 2
+                / \   / \
+               F   G  H  I        Level 3
+Height of a Tree:
+================
+We determine height of the tree by the number of edges.
+Height starts fro zero onwards.
+
+                    1             Height 0 
+                  /   \           
+                 2     3          Height 1
+                / \   / \
+               4   5  6  7        Height 2
+Forest:
+=======
+A collection of trees is know as Forest.
+
+Binary Tree:
+===========
+A tree of degree 2 which means that every node can have maxium of 2 childern not more than two. It can have less than 2 childern.
+deg(T) = 2
+childern = {0,1,2}
+
+number of Binary tree:
+=====================
+For a given number of n nodes you can make 
+T(n) = 2n*Cn / n+1 nodes.
+The forumla is also known as catlon number.
+For Example:
+============
+n = 3
+T(3) = 2(3)*C3 / 3+1
+     = 6C3 / 4
+     = 5
+The number of tress which will have maxium height is determine by:
+Max_Hieght = 2^n-1  
+
+For lableld nodes:
+=================
+For lable node suppos we have three nodes a b c and we want to fill our nodes in how many ways can we do that that we can do that in n! ways for the above example its means 3!
+So for labled nodes number of Binary tress * number of ways it can be filled
+T(n) = (2n*Cn / n+1) * n!
+        ----------    ----
+            |           |
+        For shapes   Filling
+
+Height vs Node in Binary Trees:
+===============================
+If we know height of the Binary tree what could be the minimum number of nodes and what could be the maxium number of nodes and vice versa.
+
+Example:1
+=========
+          Height
+           h=1
+    min         max
+    ---        -----
+     1           1
+    /           / \ 
+   1           2   3
+  n=2           n=3
+
+Example:2
+=========
+
+          Height
+           h=2
+    min         max
+    ---        -----
+     1            1
+    /           /   \ 
+   2           2     3
+  /           / \   / \
+ 3           4   5  6  7
+  n=3         n=7
+
+If the height is given :
+========================
+
+        minimum node forumla:
+        ====================
+        n = h+1
+
+        maxium node forumla:
+        ===================
+        a = 1  r = 2
+        a(r^k+1 - 1) / r - 1
+        1*(2^h+1 - 1) / 2 - 1 = 2^h+1 - 1
+            forumla:
+            =======
+              n = 2^h+1 - 1 
+If the Nodes are given:
+========================
+
+Max Height:
+===========
+h = n - 1 -----> O(n)
+
+Min Height:
+==========
+n = 2^h+1 - 1
+2^h+1 = n+1
+h+1 = log2(n+1)
+forumla:
+  h = log2(n+1) - 1 ------> O(logn)
+
+
+Internal Node VS External Nodes:
+================================
+For findig the internal and external nodes numbers we must the given number of deg(2) nodes.
+Number of external nodes:
+  deg(0) = deg(2) + 1
+
+Number of internal nodes:
+  deg(1) = deg(0) - 1
+
+
+Strict / Proper / Complete Binary Trees:
+========================================
+In Strict Binary tree a node can have zero or 2 childerns. A node can not have one child.
+
+If height h is given:
+  Maxium numbers of node forumla is n = 2^h+1 - 2
+  Minimum number of nodes forumla is 2h + 1
+
+If number of nodes n is given:
+  Min Height h = log2(n+1) - 1
+  Max Height h = n - 1 / 2
+
+
+
+

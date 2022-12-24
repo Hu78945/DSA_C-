@@ -337,7 +337,7 @@ void DepartmentStore::Menue()
     while (choice != 'Q')
     {
 
-        cout << "-------------------------Menue----------------------------" << endl;
+        cout << "-------------------------Menu----------------------------" << endl;
         cout << "I(Insert and item into the list)" << endl;
         cout << "M(Move and item in the store)" << endl;
         cout << "P(Print all the item into store)" << endl;
@@ -438,7 +438,6 @@ void DepartmentStore::Menue()
         case 'Q':
         {
             exit(0);
-            break;
         }
 
         default:
