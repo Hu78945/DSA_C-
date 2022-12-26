@@ -160,6 +160,8 @@ Strict / Proper / Complete Binary Trees:
 ========================================
 In Strict Binary tree a node can have zero or 2 childerns. A node can not have one child.
 
+Height VS Nodes:
+================
 If height h is given:
   Maxium numbers of node forumla is n = 2^h+1 - 2
   Minimum number of nodes forumla is 2h + 1
@@ -167,6 +169,72 @@ If height h is given:
 If number of nodes n is given:
   Min Height h = log2(n+1) - 1
   Max Height h = n - 1 / 2
+
+Internal Nodes VS External Nodes:
+=================================
+e = i + 1
+
+n-ary tree:
+==========
+
+
+Array Representation Of Binary Tree:
+====================================
+
+Tree Example:
+                    A             
+                  /   \           
+                 B     C          
+                / \   / \
+               D   E  F  G
+
+We will take an array and fill it be levels.
+
+Arr = [A, B, C, D, E, F, G]
+       0  1  2  3  4  5  6
+
+if the elment is at i index then its:
+Left Child Index: 2*i
+Right Child Index: 2*i+1
+
+If we want to find the parent of a element then :
+Parent: floor(i / 2)
+
+Full VS Complete Binary Tree:
+=============================
+A binary tree of height h having maxium number of nodes.
+n = 2 ^h+1 - 1
+
+Full Binary Tree:
+================
+If a binary tree is represented in an array then there should not be any blank spaces between them then it is called Full Binary Tree.
+
+A Complete binary tree of height h will be a full binary tree up to h-1 height.
+
+                    A       Not a Complete binary tree because it is having space         
+                  /   \     when represented in an array or it has blank space          
+                 B     C    from left to Right.          
+                / \   / \
+               D         G
+
+Array = [A, B, C, D, -, -, G] // there we have two blank spaces between them.
+
+A full binary tree is always a Complete binary tree but a Complete binary tree is not a full binary tree.
+
+Strict VS Complete Binary Tree:
+==============================
+A Strict binary tree is also called a Proper binary tree.
+Every node can have zero degree or 2 degree menas zero childern or 2 childern.
+
+Tree Traversal:
+==============
+
+Preorder: vist(node), Preorder(leftSubTree), Preorder(rightSubTree)
+Inorder: Inorder(left), vist(node), Inorder(right)
+Postorder: Postorder(left), Postorder(right), vist(node)
+Levelorder: Level by Level
+
+
 
 
 

@@ -80,9 +80,8 @@ void Queue::Display()
     Node *temp = front;
     while (temp != NULL)
     {
-        cout << temp->data << " ";
+        char dis = temp->data;
+        cout << dis << " ";
         temp = temp->next;
     }
-
-    cout << endl;
 }
