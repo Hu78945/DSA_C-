@@ -6,8 +6,11 @@ int main()
 {
     Tree T = {};
     T.create();
-    T.preorder(T.root);
+    cout << "Recursive: ";
+    T.Inorder(T.root);
     cout << "\n";
-    T.postorder(T.root);
+    cout << "Itertaive: ";
+    T.Tinorder(T.root);
+    cout << "\n";
     return 0;
 }

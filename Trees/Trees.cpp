@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Trees.h"
 #include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -83,5 +84,45 @@ void Tree::postorder(Node *p)
         postorder(p->LeftChild);
         postorder(p->RightChild);
         cout << p->data << " ";
+    }
+}
+
+void Tree::Tpreorder(Node *t)
+{
+    stack<Node *> st;
+    while (t != NULL || !st.empty())
+    {
+        if (t != NULL)
+        {
+            cout << t->data << " ";
+            st.push(t);
+            t = t->LeftChild;
+        }
+        else
+        {
+            t = st.top();
+            st.pop();
+            t = t->RightChild;
+        }
+    }
+}
+
+void Tree::Tinorder(Node *t)
+{
+    stack<Node *> st;
+    while (t != NULL || !st.empty())
+    {
+        if (t != NULL)
+        {
+            st.push(t);
+            t = t->LeftChild;
+        }
+        else
+        {
+            t = st.top();
+            st.pop();
+            cout << t->data << " ";
+            t = t->RightChild;
+        }
     }
 }

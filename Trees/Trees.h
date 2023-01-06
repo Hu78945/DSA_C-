@@ -19,7 +19,11 @@ class Tree
 public:
     Node *root = NULL;
     void create();
+    // using recursion
     void preorder(Node *p);
     void Inorder(Node *p);
     void postorder(Node *p);
+    // using traversal
+    void Tpreorder(Node *t);
+    void Tinorder(Node *t);
 };

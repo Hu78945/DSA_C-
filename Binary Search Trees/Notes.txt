@@ -1,0 +1,10 @@
+A binary search tree have all elemets which are less then the root on its left side and others on its right sides same goes for child and and their suchildes.
+Properties of Binary search tree:
+=================================
+No Duplicate
+Inorder givs sorted order.
+No of BST for 'n' nodes.
+
+Searching in Binary Search Tree:
+================================
+In this we have a complexity of O(h) where h is height of the tree. It can be logn n or n.
