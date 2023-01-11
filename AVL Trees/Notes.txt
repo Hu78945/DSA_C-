@@ -1,0 +1,19 @@
+AVL are height blanced binary trees.
+Height of the tree is manged by blance factor
+
+blance_factor: height_of_left_sub_tree - height_of_right_sub_tree
+
+bf = hl - hr
+This blance factor we calculate on every node of AVL tree.
+
+The Blance factor of every node must be  {-1, 0, 1}
+if bf = |hl - hr| <= 1 then it is blance
+
+if bf = |hl - hr| > 1 then it is imblance
+
+Every node in the tree should be blanced other wise it is called imblanced avl tree.
+
+We perfome rotation to blance the tree.
+
+AVL Tree Rotation for Insertion:
+===============================
