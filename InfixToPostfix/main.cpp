@@ -75,6 +75,11 @@ string convert(string Infix)
             }
         }
     }
+    while (st.top() != '#')
+    {
+        postfix += st.top();
+        st.pop();
+    }
 
     return postfix;
 }
