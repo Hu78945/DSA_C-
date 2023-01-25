@@ -122,3 +122,76 @@ Node *AVL::RInsert(Node *p, int key)
     }
     return p;
 }
+
+int AVL::height(Node *T)
+{
+
+    int lh, rh;
+    if (T == NULL)
+        return (0);
+    if (T->lchild == NULL)
+        lh = 0;
+    else
+        lh = 1 + T->lchild->height;
+
+    if (T->rchild == NULL)
+        rh = 0;
+    else
+        rh = 1 + T->rchild->height;
+
+    if (lh > rh)
+        return (lh);
+
+    return (rh);
+}
+
+Node *AVL::Delete(Node *T, int x)
+{
+    Node *p;
+
+    if (T == NULL)
+    {
+        return NULL;
+    }
+    else if (x > T->data)
+    {
+        T->rchild = Delete(T->rchild, x);
+        if (BlanceFactor(T) == 2)
+            if (BlanceFactor(T->lchild) >= 0)
+                T = LLrotation(T);
+            else
+                T = LRrotation(T);
+    }
+    else if (x < T->data)
+    {
+        T->rchild = Delete(T->lchild, x);
+        if (BlanceFactor(T) == -2)
+            if (BlanceFactor(T->rchild) <= 0)
+                T = RRrotation(T);
+            else
+                T = RLrotation(T);
+    }
+    else
+    {
+        if (T->rchild != NULL)
+        {
+            p = T->rchild;
+
+            while (p->lchild != NULL)
+                p = p->lchild;
+
+            T->data = p->data;
+            T->rchild = Delete(T->rchild, p->data);
+
+            if (BlanceFactor(T) == 2)
+                if (BlanceFactor(T->lchild) >= 0)
+                    T = LLrotation(T);
+                else
+                    T = LRrotation(T);
+        }
+        else
+            return (T->lchild);
+    }
+    T->height = height(T);
+    return (T);
+}

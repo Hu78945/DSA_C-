@@ -26,4 +26,7 @@ public:
     Node *LRrotation(Node *p);
     Node *RRrotation(Node *p);
     Node *RLrotation(Node *p);
+
+    int height(Node *T);
+    Node *Delete(Node *T, int x);
 };
