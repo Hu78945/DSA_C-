@@ -1,6 +1,6 @@
 Recursion:
 =========
-A function calling intselve is called recursive function.
+A function calling itself is called recursive function.
 For Example
     int fun(){
         if(<base_condition>){
@@ -9,7 +9,7 @@ For Example
             return 0;
         }
     }
-There must be some base_condition that will terminte the function otherwise the function will run infinte time.
+There must be some base condition that will terminte the function otherwise the function will run infinte time.
 
 There are two phases of recursive function which are follwoing:
 1.  Ascending Calling
